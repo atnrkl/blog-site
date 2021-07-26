@@ -9,23 +9,21 @@ export const Navbar = () => {
         <h1 className="text-3xl font-mono cursor-pointer">Blogger</h1>
         {/* right */}
 
-        {session ? (
-          <div className="flex text-lg font-semibold items-center space-x-2">
-            <p className="hidden md:inline"></p>
-            <button className="border-2 border-gray-50 bg-gray-50 text-blue-700 rounded-md py-1 px-2 cursor-pointer">
-              Sign out
-            </button>
-          </div>
-        ) : (
-          <div className="space-x-5">
-            <button className="border-2 border-gray-50   rounded-md py-1 px-2 cursor-pointer bg-gray-50 text-blue-700">
-              Log in
-            </button>
-            <button className="border-2 border-gray-50 bg-gray-50 text-blue-700 rounded-md py-1 px-2 cursor-pointer">
-              Sign in
-            </button>
-          </div>
-        )}
+        <div className="flex text-lg font-semibold items-center space-x-2">
+          <p className="hidden md:inline"></p>
+          <button className="border-2 border-gray-50 bg-gray-50 text-blue-700 rounded-md py-1 px-2 cursor-pointer">
+            Sign out
+          </button>
+        </div>
+
+        <div className="space-x-5">
+          <button className="border-2 border-gray-50   rounded-md py-1 px-2 cursor-pointer bg-gray-50 text-blue-700">
+            Log in
+          </button>
+          <button className="border-2 border-gray-50 bg-gray-50 text-blue-700 rounded-md py-1 px-2 cursor-pointer">
+            Sign in
+          </button>
+        </div>
       </div>
       {/* BOTTOM NAV */}
       <div className="flex space-x-10 bg-blue-500 text-gray-50 items-center justify-center p-2 ">
