@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { FaInstagram, FaFacebook, FaTwitter, FaMedium } from "react-icons/fa";
+import AuthContext from "../stores/authContext";
 
 export const Navbar = () => {
+  const { user, login } = useContext(AuthContext);
+
   return (
     <nav className="divide-y divide-opacity-30  divide-blue-300">
       {/* UP NAV */}
@@ -17,11 +21,11 @@ export const Navbar = () => {
         </div>
 
         <div className="space-x-5">
-          <button className="border-2 border-gray-50   rounded-md py-1 px-2 cursor-pointer bg-gray-50 text-blue-700">
-            Log in
-          </button>
-          <button className="border-2 border-gray-50 bg-gray-50 text-blue-700 rounded-md py-1 px-2 cursor-pointer">
-            Sign in
+          <button
+            onClick={login}
+            className="border-2 border-gray-50   rounded-md py-1 px-2 cursor-pointer bg-gray-50 text-blue-700"
+          >
+            Login / Signup
           </button>
         </div>
       </div>
