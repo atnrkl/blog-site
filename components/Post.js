@@ -1,40 +1,51 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Post = ({ post }) => {
+  const type = post.frontmatter.type;
+
+  console.log(post.slug);
+
+  const flair = (type) => {
+    switch (type) {
+      case "General":
+        return (
+          <h1 className="text-purple-600 text-lg font-semibold">{type}</h1>
+        );
+      case "React":
+        return <h1 className="text-blue-500 text-lg font-semibold">{type}</h1>;
+      case "JS":
+        return (
+          <h1 className="text-yellow-700 text-lg font-semibold">{type}</h1>
+        );
+      case "CSS":
+        return <h1 className="text-blue-300 text-lg font-semibold">{type}</h1>;
+      case "Python":
+        return <h1 className="text-green-400 text-lg font-semibold">{type}</h1>;
+      case "PHP":
+        return <h1 className="text-pink-400 text-lg font-semibold">{type}</h1>;
+
+      default:
+        break;
+    }
+  };
+
   return (
-    <div>
-      <div className="container items-center px-5 py-12">
-        <div className="flex flex-wrap ">
-          <div className="w-full mx-auto my-4 bg-white border rounded-lg shadow-xl ">
-            <div className="p-6">
-              <h2 className="mb-8 text-xs font-semibold tracking-widest text-black uppercase title-font">
-                {" "}
-                {post.frontmatter.date}
-              </h2>
-              <h4 className="mb-8 text-2xl font-semibold leading-none tracking-tighter text-black lg:text-3xl title-font ">
-                {" "}
-                {post.frontmatter.title}
-              </h4>
-              <img className="rounded-md" src={post.frontmatter.cover_image} />
-              <p className="mb-3 text-base leading-relaxed text-blueGray-500">
-                {" "}
-                {post.frontmatter.excerpt}{" "}
-              </p>
-              <p></p>
-              <Link href={`/blog/${post.slug}`}>
-                <a
-                  className="text-sm font-semibold text-blue-600 uppercase hover:text-black"
-                  title="read more"
-                >
-                  {" "}
-                  Read More - Article 1 »{" "}
-                </a>
-              </Link>
-            </div>
+    <Link href={`/?post=${post}`} as={`/post/${post.slug}`}>
+      <div className=" hover:scale-110 duration-75 cursor-pointer">
+        <div className="items-center theme-color  border p-4 h-64 ">
+          <div>
+            {/* flair */}
+            {flair(type)}
+            {/* date */}
+            <h3 className="text-sm text-gray-300">{post.frontmatter.date}</h3>
+          </div>
+          <div className="py-4">
+            <h1>{post.frontmatter.title}</h1>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

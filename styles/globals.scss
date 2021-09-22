@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+.z-index-on-hover {
+  z-index: 5;
+  &:hover {
+    z-index: auto;
+  }
+}
+
+.ubuntu-font {
+  font-family: "Source Code Pro", monospace;
+}
+
+.name-typhography {
+  text-shadow: -4px -4px 0px rgb(255, 58, 9),
+    4px 4px 0px rgba(34, 192, 255, 0.781);
+}
+
+.animate-custom-spin {
+  animation: spin 8s linear infinite;
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.theme-color {
+  background-color: #252728;
+}
+
+.text-theme-color {
+  color: #252728;
+}

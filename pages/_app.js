@@ -1,13 +1,7 @@
-import "../styles/globals.css";
-import { Provider } from "next-auth/client";
-import { AuthContextProvider } from "../stores/authContext";
+import "../styles/globals.scss";
+import { wrapper } from "../redux/store";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <AuthContextProvider>
-      <Component {...pageProps} />
-    </AuthContextProvider>
-  );
+  return <Component {...pageProps} />;
 }
-
-export default MyApp;
+export default wrapper.withRedux(MyApp);
